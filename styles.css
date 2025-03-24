@@ -83,6 +83,19 @@ body {
     min-width: 100%;
 }
 
+.calculator__slider input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid var(--border-color);
+    background-color: var(--container-color);
+    color: var(--text-color);
+    border-radius: 5px;
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
 .calculator__result{
     background-color: var(--container-secondary-color);
     padding: 20px 20px;

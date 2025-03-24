@@ -3,10 +3,29 @@ document.addEventListener('DOMContentLoaded', function() {
     const body = document.querySelector('body');
     const themeButton = document.getElementById('theme-button');
     const amountSlider = document.getElementById('amount');
+    const amountInput = document.getElementById("amount-input");
     const monthsSlider = document.getElementById('term');
-    const monthsDisplay = document.getElementById('term-value');
-    const amountDisplay = document.getElementById('amount-value');
+    const monthsInput = document.getElementById("term-input");
     const monthlyPaymentDisplay = document.getElementById('monthly-payment');
+
+    calculateMonthlyPayment();
+    function updateValues(event) {
+        if (event.target === amountSlider) {
+            amountInput.value = amountSlider.value;
+        } else if (event.target === amountInput) {
+            amountSlider.value = amountInput.value;
+        } else if (event.target === monthsSlider) {
+            monthsInput.value = monthsSlider.value;
+        } else if (event.target === monthsInput) {
+            monthsSlider.value = monthsInput.value;
+        }
+        calculateMonthlyPayment();
+    }
+
+    amountSlider.addEventListener('input', updateValues);
+    amountInput.addEventListener('input', updateValues);
+    monthsSlider.addEventListener('input', updateValues);
+    monthsInput.addEventListener('input', updateValues);
 
     calculateMonthlyPayment();
 
@@ -22,24 +41,14 @@ document.addEventListener('DOMContentLoaded', function() {
         valueShake(monthlyPaymentDisplay)
     }
 
-    function updateSliders(){
-        let amount = Math.round(parseInt(amountSlider.value, 10) / 100) * 100;
-        const months = parseInt(monthsSlider.value, 10);
-        
-        amountDisplay.textContent = amount + "€";
-        monthsDisplay.textContent = months + " mēneši";
-    }
-
     amountSlider.addEventListener('input', function(){
-        updateSliders();
         calculateMonthlyPayment();
     });
 
     monthsSlider.addEventListener('input', function(){
-        updateSliders();
         calculateMonthlyPayment();
     });
-    updateSliders();
+
 
     function valueShake(element) {
         element.classList.add('value-shake');
