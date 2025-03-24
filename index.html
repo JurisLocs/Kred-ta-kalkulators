@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulators</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/20a0d129a5.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="theme-toggle">
+        <button id="theme-button">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </div>
+    <main class="calculator">
+        <header class="calculator__header">
+            <h2>Kredīta kalkulators</h2>
+        </header>
+        <section>
+            <div class="calculator__slider">
+                <label for="amount">Kredīta summa:</label>
+                <span id="amount-value">1000</span>
+                <input type="range" id="amount" min="100" max="25000" value="1000">
+                <div class="calculator__range-labels">
+                    <span>100 €</span>
+                    <span>25 000 €</span>
+                </div>
+                
+            </div>
+            <div class="calculator__slider">
+                <label for="term">Kredīta termiņš:</label>
+                <span id="term-value">1</span>
+                <input type="range" id="term" min="6" max="72" value="6">
+                <div class="calculator__range-labels">
+                    <span>6 mēneši</span>
+                    <span>72 mēneši</span>
+                </div>
+                
+            </div>
+
+            <div class="calculator__result">
+                <p>Ikmēneša maksājums:</p>
+                <p id="monthly-payment" class="value-shake">0.00</p>
+                <p class="calculator__secondary-text">Mēneša minimālais maksājums*</p>
+                <button class="apply-button">Saņemt</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

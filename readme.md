@@ -1,0 +1,1 @@
+# Vienkāršs minimālistisks kredīta kalkulators
